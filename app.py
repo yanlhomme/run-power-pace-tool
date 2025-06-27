@@ -526,6 +526,8 @@ if gpx_file and (should_run or selected_page == "Surface Classification"):
                             endpoints = st.session_state.endpoints[-2:]
                             start_idx = df[(df['lat0'] == endpoints[0][0]) & (df['lon0'] == endpoints[0][1])].index[0]
                             end_idx = df[(df['lat0'] == endpoints[1][0]) & (df['lon0'] == endpoints[1][1])].index[0]
+                            if end_idx < start_idx:
+                                start_idx, end_idx = end_idx, start_idx
                             current_suface = df['surface'].iloc[start_idx:end_idx+1].mode().min()
                             new_surface = 1 - current_suface  # toggle between paved (0) and unpaved (1)
                             st.session_state.custom_surfaces[start_idx:end_idx+1] = [new_surface] * (end_idx - start_idx + 1)
