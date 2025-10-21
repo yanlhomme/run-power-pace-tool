@@ -1,3 +1,16 @@
+"""Power-Based Pacing Tool for Runners
+
+This Streamlit app allows runners to compute power-based pacing strategies
+based on GPX tracks. It estimates the power required to run each segment
+of the track, taking into account factors such as elevation changes,
+surface types, runner characteristics, and environmental conditions.
+The app provides visualizations of the pace and power profiles along the route,
+as well as a summary of key metrics.
+
+To run the app, use the command:
+streamlit run app.py
+"""
+
 from datetime import datetime, timedelta
 
 import folium
